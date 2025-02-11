@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23 Transparents</title>
+    <link rel="stylesheet" href="Startup.css">
+</head>
+
+<body>
+    <div class="link-container">
+        <a href="index.html" class="link">Revenir à la page principale</a>
+    </div>
+
+    <h1 class="center-text">Liste des Transparents</h1>
+
+    <div class="slides-container" id="slidesContainer"></div>
+
+    <script>
+    window.onload = function() {
+        const slidesContainer = document.getElementById("slidesContainer");
+
+        function addSlide(title, content) {
+            const slide = document.createElement("div");
+            slide.classList.add("slide");
+
+            const slideTitle = document.createElement("h2");
+            slideTitle.innerHTML = title;
+
+            const contentDiv = document.createElement("div");
+            contentDiv.classList.add("content");
+            contentDiv.innerHTML = content;
+
+            slide.appendChild(slideTitle);
+            slide.appendChild(contentDiv);
+            slidesContainer.appendChild(slide);
+        }
+
+        const slides = [
+            { title: "1. Titre: Café Go!", content: "" },
+            { title: "2. Plan", content: "<ul><li>3. Situation et problème</li><li>4. Solution et proposition de valeur</li><li>5. Fonctionnalités et écrans</li><li>6. Acquisition et rétention</li><li>7. Market study: users/customers</li><li>8. Market study: competitors</li><li>9. Analyse du comportement utilisateur</li><li>10. Conclusion et poursuite du projet</li></ul>" },
+            { title: "3. Situation et problème", content: "<br>Situation : Clara prend le bus tous les matins pour se rendre au travail. En chemin, elle passe devant un autre bâtiment qui possède une machine à café. Un jour, elle décide de s'arrêter pour acheter un café, mais elle rencontre un problème. En essayant d'acheter son café dans la machine de son propre bâtiment, elle réalise qu'elle ne reçoit rien, car la machine est en panne. <br> Problème : Si Clara avait su à l'avance que la machine de son bâtiment était en panne, elle aurait pu choisir de se rendre à lautre bâtiment, juste à côté, où la machine à café fonctionne parfaitement. Mais comme elle n'a aucune information sur l'état des machines dans les différents bâtiments, elle perd du temps et de l'énergie à essayer de faire fonctionner celle de son bâtiment." },
+            { title: "4. Solution et proposition de valeur", content: "L'application Café Go! informe les utilisateurs de l'état des machines à café en temps réel." },
+            { title: "5. Fonctionnalités et écrans", content: "L'application affiche les machines disponibles, permet de signaler une panne et affiche une carte des emplacements." },
+            { title: "6. Acquisition et rétention", content: "<p>Pour faire connaître notre application, nous partagerons un QR code sur le Discord de la promotion et sur les machines à café concernées. En scannant ce QR code, les utilisateurs seront redirigés directement vers l’application. Lors de la phase de test avec un prototype manuel, nous avons adopté une stratégie similaire en cas de panne de l’application. Nous avions créé un groupe WhatsApp et partagé un QR code, ce qui nous a permis de réunir une vingtaine d’utilisateurs en moins d’une semaine. Chaque jour, nous mettions à jour le groupe avec un message, comme illustré sur l’image ci-jointe [2]. Les utilisateurs pouvaient réagir avec un emoji ou répondre directement par écrit.</p><img src='WtspGrp.jpg' alt='Stratégie d’acquisition' style='width:100%; max-width:600px;'> Si une machine tombe en panne, nous l’indiquons immédiatement dans le groupe avec un message précisant le bâtiment et le numéro de la machine concernée. Par ailleurs, nous mettons à jour notre bio, qui ne répertorie que les machines en état de fonctionnement avec leur adresse, comme indiqué sur l’image. Pour l’instant, notre stratégie porte ses fruits, et nous continuons nos efforts pour rassembler davantage d’utilisateurs au sein du groupe. <img src='WtspGrpDescp.jpg' alt='Stratégie d’acquisition' style='width:100%; max-width:600px;'>"},            { title: "7. Market study: users/customers", content: "Analyse des besoins des utilisateurs basés sur des retours terrain et enquêtes." },
+            { title: "8. Market study: competitors", content: "Étude des applications similaires et de leurs forces/faiblesses." },
+            { title: "9. Analyse du comportement utilisateur", content: "Observations des utilisateurs lors des tests et retours d'expérience." },
+            { title: "10. Conclusion et poursuite du projet", content: "Prochaines étapes pour développer et lancer l'application." },
+            { title: "11. Appendix", content: "Documents et informations supplémentaires." },
+            { title: "12. BMC", content: "<img src='bmc.png' alt='BMC' style='width:100%; max-width:600px;'>" },
+            { title: "13. Code Java", content: `
+                <div class="code-container">
+                    <pre><code>
+public class Machine {
+    // Attributs
+    private int numero;
+    private boolean etat;
+
+    // Constructeur
+    public Machine(int num, boolean e) {
+        this.numero = num;
+        this.etat = e;
+    }
+
+    // Méthodes
+    public int getNum() {
+        return this.numero;
+    }
+
+    public boolean getEtat() {
+        return this.etat;
+    }
+
+    public void SignalerChangementEtat() {
+        etat = !etat;
+    }
+    public String AfficheMachine(){
+        return "Num Machine: " + this.numero + " Etat: " + this.etat;
+    }
+}
+                    </code></pre>
+                    <pre><code>
+import java.util.ArrayList;
+
+public class Batiment {
+    private String Nom;
+    private String Localisation;
+    private ArrayList<Machine> machines;
+
+    public Batiment(String n, String loc) {
+        this.Nom = n;
+        this.Localisation = loc;
+        this.machines = new ArrayList<>();
+    }
+    public String getNom(){return Nom;}
+    public String getLocalisation(){return Localisation;}
+    public ArrayList<Machine> getMachines() {
+        return machines;
+    }
+
+    public void ajouterMachine(Machine m) {
+        machines.add(m);
+    }
+
+    public String AfficheBatiment(){
+        String s = "Nom: "+ this.Nom + "\nLocalisation: " + this.Localisation;
+        for (Machine m: machines){
+            s += m.AfficheMachine();
+            s+= "\n";
+        }
+        return s;
+    }
+}
+                    </code></pre>
+                    <pre><code>
+import java.util.ArrayList;
+
+public class Main {
+
+    public static ArrayList<Batiment> MachineQuiFonctionne(ArrayList<Batiment> bs) {
+        ArrayList<Batiment> bf = new ArrayList<>();
+        for (Batiment b : bs) {
+            for (Machine m : b.getMachines()) {
+                if (m.getEtat()) {
+                    bf.add(b);
+                    break;
+                }
+            }
+
+        }
+        return bf;
+    }
+
+    public static void main(String[] args) {
+        Batiment b640 = new Batiment("Batiment 640", "Rue Sophie Germain");
+        Batiment bhm4 = new Batiment("Batiment Hm4", "Rue Sophie Germain");
+        Batiment bhm = new Batiment("Batiment Henri Moissan", "Rue Sophie Germain");
+
+        ArrayList<Batiment> batiments = new ArrayList<>();
+        batiments.add(b640);
+        batiments.add(bhm4);
+        batiments.add(bhm);
+
+        b640.ajouterMachine(new Machine(78001517, true));
+
+        bhm.ajouterMachine(new Machine(78001647, true));
+        bhm.ajouterMachine(new Machine(78001647, false));
+
+        bhm4.ajouterMachine(new Machine(78001484, false));
+        bhm4.ajouterMachine(new Machine(78001484, false));
+
+        System.out.println("- Les batiment dont les machines fonctionnes sont:");
+        for (Batiment b: MachineQuiFonctionne(batiments)){
+            System.out.println(b.AfficheBatiment() + "\n");
+        }
+    }
+}
+                    </code></pre>
+                </div>
+            ` },
+            {
+    title: "14. Prototype manuel", 
+    content: `
+        <p>Voici un tableau avec les informations relatives au prototype manuel :</p>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Fonction de l'application</th>
+                    <th>Equivalent Manuel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Obtenir l'Url du site Web pour la première fois</td>
+                    <td>Partage du lien vers le groupe Whatsaap ET QR Code sur les machines pour y accéder</td>
+                </tr>
+                <tr>
+                    <td>Signaler qu'une machine tombe en panne OU qu'elle fonctionne de nouveau</td>
+                    <td>Envoyer un message sur le groupe pour signaler qu'une machine a changer d'état en indiquant l'état des autres machines aussi</td>
+                </tr>
+                <tr>
+                    <td>Localiser les autres machines à proximité qui marchent</td>
+                    <td>Indiquer en bio du groupe Whatsaap la localisation des machines avec leur numéro</td>
+                </tr>
+            </tbody>
+        </table>
+    `
+},
+            { title: "14. Prototype manuel", content: `
+        <p>Voici un tableau avec les informations relatives au prototype manuel :</p>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Fonction de l'application</th>
+                    <th>Equivalent Manuel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Obtenir l'Url du site Web pour la première fois</td>
+                    <td>Partage du lien vers le groupe Whatsaap ET QR Code sur les machines pour y accéder</td>
+                </tr>
+                <tr>
+                    <td>Signaler qu'une machine tombe en panne OU qu'elle fonctionne de nouveau</td>
+                    <td>Envoyer un message sur le groupe pour signaler qu'une machine a changer d'état en indiquant l'état des autres machines aussi</td>
+                </tr>
+                <tr>
+                    <td>Localiser les autres machines à proximité qui marchent</td>
+                    <td>Indiquer en bio du groupe Whatsaap la localisation des machines avec leur numéro</td>
+                </tr>
+            </tbody>
+        </table>
+    ` },
+            { title: "15. Application (site web)", content: "" },
+            { title: "16. CR : acquisition et rétention", content: "" },
+            { title: "17. Interviews : questions, résultats", content: "<table border='1' cellpadding='5' cellspacing='0'><thead><tr><th>Catégorie</th><th>Résultat</th></tr></thead><tbody><tr><td>Participants partageant leur numéro</td><td>90%</td></tr><tr><td>Consommation régulière de café</td><td>50%</td></tr><tr><td>Consommation quotidienne</td><td>25%</td></tr><tr><td>Ne boivent pas de café</td><td>12.5%</td></tr><tr><td>Intérêt pour l'application</td><td>78.5%</td></tr><tr><td>Perte d'argent à cause d'une machine défectueuse</td><td>71%</td></tr><tr><td>Non affectés par des pannes</td><td>21%</td></tr><tr><td>Bâtiment de consommation</td><td>75% (640), 9% (Henri Moissan), 5% (H2), 5% (H6)</td></tr></tbody></table>" },
+            { title: "18. Questionnaire : questions, résultats", content: "" },
+            { title: "19. Étude du marché (users/customers)", content: "" },
+            { title: "20. Étude du marché (competitors)", content: "" },
+            { title: "21. Comportement des utilisateurs et retour : prototype manuel", content: "<br> 1.équipe: l'équipe n'a pas rencontrer de problème particulier face à la mise à jour des machine, chaque personne du groupe s'en occupe le matin et l'aprem pour verifier les états des machines et envoyer un message sur le groupe. <br> 2.utilisateur: Notre équipe n'a pas reçu de message de la part des utilisateurs sur un changement d'état de machines donc on déduit que tout ce passe bien, autrement dit que toute les machines fonctionnent." },
+            { title: "22. Comportement des utilisateurs et retour : application", content: "" },
+            { title: "23. Plan financier pluri-annuel restreint : dépenses, breakeven point (arguments)", content: "" }
+        ];
+
+        slides.forEach(slide => addSlide(slide.title, slide.content));
+    };
+    </script>
+</body>
+</html>
