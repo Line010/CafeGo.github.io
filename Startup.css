@@ -1,0 +1,138 @@
+/* Basic body styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin-bottom: 30px;
+}
+/* General text styling */
+.team {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;  /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team strong {
+    font-size: 20px;
+    color: #007BFF;  /* Highlight the title in blue */
+}
+
+.team ul {
+    list-style: none;  /* Removes default bullet points */
+    padding-left: 0;    /* Removes default padding */
+    margin-top: 10px;
+}
+
+.team li {
+    position: relative;
+    padding-left: 25px;  /* Space for custom bullet */
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+h4, h5, p, ul {
+    padding-left: 40px;  /* Espace à gauche de chaque élément */
+    padding-right: 40px; 
+}
+
+/* Title center styling */
+.center-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36px;
+    color: #333;
+}
+
+/* Left-aligned text for team */
+.left-text {
+    margin: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Link to go to the transparent page */
+.link-container {
+    text-align: left;  /* Align link to the left */
+    margin-top: 30px;
+    padding-left: 20px;  /* Add some space from the left */
+}
+
+.link {
+    font-size: 20px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Centrer les slides et les afficher un par ligne */
+.slides-container {
+    display: flex;
+    flex-direction: column;  /* Afficher les slides en colonne (un par ligne) */
+    align-items: center;  /* Centrer horizontalement */
+    gap: 20px;  /* Ajouter de l'espace entre les slides */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Ajustement du style des slides */
+.slide {
+    width: 60%;  /* Ajuster la largeur à 60% de la page */
+    max-width: 600px;  /* Limiter la largeur pour éviter qu'ils ne soient trop grands */
+    height: auto;  /* Ajustement automatique de la hauteur */
+    min-height: 200px;  /* Hauteur minimale */
+    border: 2px dashed #999;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ajustement du titre pour qu'il soit bien lisible */
+.slide h2 {
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Ajustement du contenu */
+.slide .content {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    line-height: 1.4;
+}
+.code-container {
+    background-color: #1e1e1e; /* Fond sombre comme un éditeur de code */
+    color: #dcdcdc;
+    font-family: "Courier New", monospace;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto; /* Active le scroll interne */
+    max-height: 400px; /* Hauteur limitée avec scroll */
+    width: 100%;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+pre {
+    white-space: pre-wrap; /* Permet de garder le formatage du code */
+    margin: 0;
+    padding: 10px;
+}

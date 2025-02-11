@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23 Transparents</title>
+    <link rel="stylesheet" href="Startup.css">
+</head>
+
+<body>
+    <div class="link-container">
+        <a href="index.html" class="link">Revenir à la page principale</a>
+    </div>
+
+    <h1 class="center-text">Liste des Transparents</h1>
+
+    <div class="slides-container" id="slidesContainer"></div>
+
+    <script>
+    window.onload = function() {
+        const slidesContainer = document.getElementById("slidesContainer");
+
+        function addSlide(title, content) {
+            const slide = document.createElement("div");
+            slide.classList.add("slide");
+
+            const slideTitle = document.createElement("h2");
+            slideTitle.innerHTML = title;
+
+            const contentDiv = document.createElement("div");
+            contentDiv.classList.add("content");
+            contentDiv.innerHTML = content;
+
+            slide.appendChild(slideTitle);
+            slide.appendChild(contentDiv);
+            slidesContainer.appendChild(slide);
+        }
+
+        const slides = [
+            { title: "1. Titre: Café Go!", content: "" },
+            { title: "2. Plan", content: "<ul><li>3. Situation et problème</li><li>4. Solution et proposition de valeur</li><li>5. Fonctionnalités et écrans</li><li>6. Acquisition et rétention</li><li>7. Market study: users/customers</li><li>8. Market study: competitors</li><li>9. Analyse du comportement utilisateur</li><li>10. Conclusion et poursuite du projet</li></ul>" },
+            { title: "3. Situation et problème", content: "Clara prend le bus tous les matins pour aller au travail. Un jour, elle veut prendre un café à la machine de son bâtiment, mais celle-ci est en panne. Si elle avait su à l'avance, elle aurait pu aller à une autre machine fonctionnelle dans un bâtiment voisin." },
+            { title: "4. Solution et proposition de valeur", content: "L'application Café Go! informe les utilisateurs en temps réel sur l'état des machines à café disponibles." },
+            { title: "5. Fonctionnalités et écrans", content: "Affichage des machines disponibles, signalement des pannes, carte interactive." },
+            { title: "6. Acquisition et rétention", content: "Utilisation de QR codes et groupes WhatsApp pour informer et attirer les utilisateurs." },
+            { title: "7. Market study: users/customers", content: "Analyse des besoins des utilisateurs basés sur des retours terrain et enquêtes." },
+            { title: "8. Market study: competitors", content: "Étude des applications similaires et de leurs forces/faiblesses." },
+            { title: "9. Analyse du comportement utilisateur", content: "Observations des utilisateurs lors des tests et retours d'expérience." },
+            { title: "10. Conclusion et poursuite du projet", content: "Prochaines étapes pour développer et lancer l'application." },
+            { title: "11. Appendix", content: "Documents et informations supplémentaires." },
+            { title: "12. BMC", content: "<img src='bmc.png' alt='BMC' style='width:100%; max-width:600px;'>" },
+            { title: "13. Code Java", content: "<pre><code>public class Machine {...}</code></pre>" },
+            { title: "14. Prototype manuel", content: "Tableau comparatif des fonctionnalités de l'application et leur équivalent manuel." },
+            { title: "15. Application (site web)", content: "" },
+            { title: "16. CR : acquisition et rétention", content: "" },
+            { title: "17. Interviews : questions, résultats", content: "<table border='1' cellpadding='5' cellspacing='0'><thead><tr><th>Catégorie</th><th>Résultat</th></tr></thead><tbody><tr><td>Participants partageant leur numéro</td><td>90%</td></tr><tr><td>Consommation régulière de café</td><td>50%</td></tr><tr><td>Consommation quotidienne</td><td>25%</td></tr><tr><td>Ne boivent pas de café</td><td>12.5%</td></tr><tr><td>Intérêt pour l'application</td><td>78.5%</td></tr><tr><td>Perte d'argent à cause d'une machine défectueuse</td><td>71%</td></tr><tr><td>Non affectés par des pannes</td><td>21%</td></tr><tr><td>Bâtiment de consommation</td><td>75% (640), 9% (Henri Moissan), 5% (H2), 5% (H6)</td></tr></tbody></table>" },
+            { title: "18. Questionnaire : questions, résultats", content: "" },
+            { title: "19. Étude du marché (users/customers)", content: "" },
+            { title: "20. Étude du marché (competitors)", content: "" },
+            { title: "21. Comportement des utilisateurs et retour : prototype manuel", content: "Aucun signalement de panne, donc toutes les machines semblent fonctionner." },
+            { title: "22. Comportement des utilisateurs et retour : application", content: "" },
+            { title: "23. Plan financier pluri-annuel restreint : dépenses, breakeven point (arguments)", content: "" }
+        ];
+
+        slides.forEach(slide => addSlide(slide.title, slide.content));
+    };
+    </script>
+</body>
+</html>
